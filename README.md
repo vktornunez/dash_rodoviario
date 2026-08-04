@@ -41,7 +41,7 @@ O painel contempla:
   - `frontend/index.html`: Layout moderno com cards de KPI, mapa, gráficos e tabela.
   - `frontend/style.css`: Paleta Dark Institucional PRF (`#0b132b`, `#ffb703`, `#3a86ef`, `#e63946`), glassmorphism e animações.
   - `frontend/app.js`: Chamadas `fetch` assíncronas para a API backend.
-  - `docs/*`: Todos os 10 documentos e diagramas exigidos na Sprint 1.
+  - `docs/*`: Documentos e diagramas exigidos na Sprint 1.
 
 ---
 
