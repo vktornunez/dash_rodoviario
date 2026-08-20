@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Serviço do Banco de Dados
+  # Serviço do Banco de Dados PostgreSQL
   db:
     image: postgres:15-alpine
     container_name: dash_db
@@ -13,11 +13,10 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      # O Docker já roda o init.sql automaticamente na primeira vez que subir o banco
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
       - pgdata:/var/lib/postgresql/data
 
-  # Serviço do Backend
+  # Serviço do Backend (FastAPI)
   backend:
     build: .
     container_name: dash_backend
@@ -27,12 +26,14 @@ services:
     depends_on:
       - db
     environment:
+      # Passando as variáveis separadas para o seu config.py ler
       - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=dash_rodoviario
       - DB_USER=admin
       - DB_PASS=adminpassword
-      - DB_NAME=dash_rodoviario
 
-  # Serviço do Frontend
+  # Serviço do Frontend (Nginx para servir os arquivos estáticos)
   frontend:
     image: nginx:alpine
     container_name: dash_frontend
@@ -40,9 +41,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      # Mapeia a pasta frontend diretamente para o servidor web do Nginx
       - ./scr/frontend:/usr/share/nginx/html:ro
 
-# Define o volume persistente para não perder os dados do banco
 volumes:
   pgdata:
