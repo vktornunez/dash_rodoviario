@@ -9,8 +9,8 @@ Membro Responsável: Petrus (Backend / Desenvolvedor)
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, List, Dict, Any
-from backend.config import settings
-from backend.database import get_db_connection
+from scr.backend.config import settings
+from scr.backend.database import get_db_connection
 
 app = FastAPI(
     title=settings.PROJECT_NAME,

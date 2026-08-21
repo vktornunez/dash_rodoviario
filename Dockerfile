@@ -10,4 +10,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia todo o código do projeto para o container
 COPY . .
 
-CMD ["uvicorn", "scr.backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
