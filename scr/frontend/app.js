@@ -4,7 +4,7 @@
    Membro Responsável: Victor (Frontend / Scrum Master)
    ============================================================================= */
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'https://reimagined-doodle-jjvgxpv5qwxp35rpx-8000.app.github.dev/';
 
 let map = null;
 let chartEvolucao = null;

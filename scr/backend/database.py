@@ -1,6 +1,6 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from backend.config import settings
+from scr.backend.config import settings
 
 def get_db_connection():
     """

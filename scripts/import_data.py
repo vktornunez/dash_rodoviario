@@ -54,7 +54,7 @@ def clean_data():
     total_envolvidos = 0
     ocorrencias_processadas = set()
 
-    for chunk in pd.read_csv(CSV_FILE, sep=';', encoding='utf-8', chunksize=chunk_size, low_memory=False):
+    for chunk in pd.read_csv(CSV_FILE, sep=';', encoding='latin1', chunksize=chunk_size, low_memory=False):
         # 1. Tratar Ocorrências (Deduplicadas por ID do Acidente)
         df_ocorrencias = chunk.drop_duplicates(subset=['id'])
         
